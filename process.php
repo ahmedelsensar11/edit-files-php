@@ -16,13 +16,14 @@ if (isset($_POST['template_name'])) {
         $file = 'templates/' . $template_name . '.docx';
         if (file_exists($file)) {
             $phpword = new TemplateProcessor($file);
-            /*
             foreach ($_POST as $key => $value) {
                 $phpword->setValue('${'.$key.'}' , $value);
             }
-            $phpword->saveAs('outputs/' . $template_name . '_' . time() . '.docx');
-*/
-            echo $template_name.'.docx';
+            $edited_file = 'outputs/' . $template_name . '_' . time() . '.docx';
+            $phpword->saveAs($edited_file);
+            //download file
+            //downloadFile($edited_file);
+            echo 'file downloadeddd';
         }else{
             echo 'file not exists';
         }
@@ -32,3 +33,20 @@ if (isset($_POST['template_name'])) {
 }
 echo '<br>';
 echo 'finish';
+
+function downloadFile ($file){
+    //$file = 'outputs/test.docx';
+    if (file_exists($file)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        readfile($file);
+        exit;
+    }else{
+        echo 'The file does not exist.';
+    }
+}
