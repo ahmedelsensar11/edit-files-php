@@ -11,11 +11,13 @@ if (isset($_POST['template_name'])) {
         $file = 'templates/' . $template_name . '.docx';
         if (file_exists($file)) {
             $phpword = new TemplateProcessor($file);
+            /*
             foreach ($_POST as $key => $value) {
                 $phpword->setValue('${'.$key.'}' , $value);
             }
             $phpword->saveAs('outputs/' . $template_name . '_' . time() . '.docx');
-            echo 'ok';
+            */
+            echo $template_name.'.docx';
         }else{
             echo 'file not exists';
         }
