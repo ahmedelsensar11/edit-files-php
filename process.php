@@ -1,4 +1,8 @@
 <?php
+
+echo 'works';
+
+/*
 require 'vendor\autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -16,7 +20,7 @@ if (isset($_POST['template_name'])) {
                 $phpword->setValue('${'.$key.'}' , $value);
             }
             $phpword->saveAs('outputs/' . $template_name . '_' . time() . '.docx');
-            */
+
             echo $template_name.'.docx';
         }else{
             echo 'file not exists';
@@ -25,3 +29,4 @@ if (isset($_POST['template_name'])) {
         echo 'error : '.$e->getMessage();
     }
 }
+*/
