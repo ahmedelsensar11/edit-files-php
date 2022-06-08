@@ -2,4 +2,4 @@
 /outputs
 .idea
 error_log
-.idea/*
+.idea/workspace.xml

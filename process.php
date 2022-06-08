@@ -1,6 +1,7 @@
 <?php
 
 echo 'works';
+echo '<br>';
 
 
 require 'vendor\autoload.php';
@@ -29,5 +30,5 @@ if (isset($_POST['template_name'])) {
         echo 'error : '.$e->getMessage();
     }
 }
-
+echo '<br>';
 echo 'finish';
