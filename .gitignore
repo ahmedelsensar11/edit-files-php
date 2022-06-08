@@ -1,3 +1,5 @@
 /vendor
 /outputs
 .idea
+error_log
+.idea/*
