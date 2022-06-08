@@ -23,7 +23,7 @@ if (isset($_POST['template_name'])) {
             $phpword->saveAs($edited_file);
             //download file
             //downloadFile($edited_file);
-            echo 'file downloadeddd';
+            echo 'file downloaded';
         }else{
             echo 'file not exists';
         }
