@@ -1,10 +1,5 @@
 <?php
-
-echo 'works';
-echo '<br>';
-
-
-require 'vendor\autoload.php';
+require '/home/qbizns/public_html/legal-clinic/edit-files-php/vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
@@ -17,7 +12,7 @@ if (isset($_POST['template_name'])) {
         if (file_exists($file)) {
             $phpword = new TemplateProcessor($file);
             foreach ($_POST as $key => $value) {
-                $phpword->setValue('${'.$key.'}' , $value);
+                $phpword->setValue($key , $value);
             }
             $edited_file = 'outputs/' . $template_name . '_' . time() . '.docx';
             $phpword->saveAs($edited_file);
@@ -31,8 +26,7 @@ if (isset($_POST['template_name'])) {
         echo 'error : '.$e->getMessage();
     }
 }
-echo '<br>';
-echo 'finish';
+
 
 function downloadFile ($file){
     //$file = 'outputs/test.docx';
